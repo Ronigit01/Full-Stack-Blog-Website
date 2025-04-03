@@ -25,7 +25,7 @@ app.use("/signin", signiinRouter)
 app.use("/create-blog", createBlogRouter)
 app.use("/blog",showBlogRouter)
 app.use("/profile", profileRouter)
-// app.use("/edit", editRouter)
+
 
 
 app.post("/logout",(req,res)=>{
