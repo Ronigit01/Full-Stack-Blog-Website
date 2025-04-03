@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roni's Radar</title>
+    <link href="/css/tailwind.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://kit.fontawesome.com/d90b7d915f.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="data:image/svg+xml,
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+            <text y='90' font-size='90'>📚</text>
+        </svg>" type="image/svg+xml">
+    </Link>
+</head>
+
+<body>
+    <div class="main p-1 pt-4 md:p-10 h-screen w-full ">
+
+        <!-- //////////////// navbar /////////////////// -->
+
+        <nav class="flex flex-wrap items-center justify-between px-5 md:px-10 lg:px-14 py-3">
+            <a href="/" class="font-bold text-[1.1rem] lg:text-lg  text-[#4A3F35]">📚 Roni's<span
+                    class="text-[#C47B47]"> Radar</span></a>
+            <div class="flex gap-4 md:gap-8 items-center">
+
+            </div>
+        </nav>
+
+
+
+        <!-- /////////////////// create account //////////////////////// -->
+
+        <div class="account flex flex-col items-center justify-center mt-28 sm:mt-44">
+            <h1 class="text-[1.1rem] sm:text-xl mb-4 font-semibold ">Login Your Account</h1>
+
+            <form action="/login/check" method="post" class=" flex flex-col items-center  justify-center">
+                <input type="text" placeholder="Email" name="email"
+                    class="block  px-3 py-2 bg-gray-100 text-gray-600 outline-none rounded-md">
+                <input type="password" placeholder="Password" name="password"
+                    class="block  px-3 py-2 mt-3 bg-gray-100 text-gray-600 outline-none rounded-md">
+                <input type="submit" value="Login"
+                    class="block bg-[#8C4A35] px-8 py-2 text-sm text-white mt-3 rounded-md ">
+            </form>
+            <p class="text-sm text-gray-600 mt-4">Don't have an account?
+                <a href="/signin" class="text-sm font-semibold text-[#8C4A35] hover:underline">Sign up</a>
+            </p>
+        </div>
+
+    </div>
+</body>
+
+</html>

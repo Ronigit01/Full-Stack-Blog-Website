@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roni's Radar</title>
+    <link href="/css/tailwind.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://kit.fontawesome.com/d90b7d915f.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="data:image/svg+xml,
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+        <text y='90' font-size='90'>📚</text>
+    </svg>" type="image/svg+xml">
+    </Link>
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <!-- HEADER -->
+
+    <!-- HEADER -->
+    <header class="py-6 bg-white">
+        <nav class="container mx-auto flex justify-between items-center px-6">
+            <!-- Logo -->
+            <a href="/" class="text-[1.1rem] font-bold text-[#4A3F35] sm:text-[18px] flex items-center">
+                📚 Roni's<span class="text-[#C47B47]"> Radar</span>
+            </a>
+
+            <!-- Desktop Menu -->
+
+            <div class="hidden md:flex items-center space-x-6">
+                <ul class="hidden md:flex space-x-6 text-[#4A3F35]">
+                    <li><a href="#" class="hover:text-[#C47B47]"><i class="fa-solid fa-blog"></i> Latest Blogs</a></li>
+                    <li><a href="/profile" class="hover:text-[#C47B47]"><i class="fa-solid fa-user"></i> Profile</a>
+                    </li>
+
+                </ul>
+                <% if (!token) { %>
+                    <a href="/login"
+                        class="bg-[#8C4A35] text-white px-4 py-2 rounded hover:bg-[#6F3928] w-auto">Login</a>
+                    <a href="/signin"
+                        class="border px-4 py-2 rounded border-[#8C4A35] text-[#8C4A35] hover:bg-[#8C4A35] hover:text-white w-auto">Sign
+                        In</a>
+                    <% } else { %>
+                        <a href="/create-blog"
+                            class="border px-4 py-2 rounded border-[#8C4A35] text-[#8C4A35] hover:bg-[#8C4A35] hover:text-white w-auto">Create
+                            Blog</a>
+                        <form action="/logout" method="post">
+                            <button
+                                class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-800 w-auto">Logout</button>
+                        </form>
+                        <% } %>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-3xl text-[#4A3F35]">
+                ☰
+            </button>
+        </nav>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden flex flex-col items-center bg-white py-4 space-y-4">
+            <a href="/" class="text-[#4A3F35] hover:text-[#C47B47]"><i class="fa-solid fa-blog"></i> Blogs</a>
+            <a href="/profile" class="text-[#4A3F35] hover:text-[#C47B47]"><i class="fa-solid fa-user"></i> Profile</a>
+
+
+            <!-- Mobile Login/Logout Buttons -->
+            <% if (!token) { %>
+                <a href="/login" class="bg-[#8C4A35] text-white px-4 py-2 rounded hover:bg-[#6F3928] w-auto">Login</a>
+                <a href="/signin"
+                    class="border px-4 py-2 rounded border-[#8C4A35] text-[#8C4A35] hover:bg-[#8C4A35] hover:text-white w-auto">Sign
+                    In</a>
+                <% } else { %>
+                    <a href="/create-blog"
+                        class="border px-4 py-2 rounded border-[#8C4A35] text-[#8C4A35] hover:bg-[#8C4A35] hover:text-white w-auto">Create
+                        Blog</a>
+                    <form action="/logout" method="post">
+                        <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-800 w-auto">Logout</button>
+                    </form>
+                    <% } %>
+        </div>
+
+    </header>
+
+
+    <!-- HERO SECTION -->
+    <section class="relative w-full min-h-[300px] sm:min-h-[350px] lg:min-h-[400px] flex items-center justify-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img src="/images/hero.jpg" 
+                alt="Hero Image" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div> <!-- Dark Overlay -->
+        </div>
+    
+        <!-- Content -->
+        <div class="relative z-10 text-center text-white px-6">
+            <!-- Badge -->
+            <span class="bg-white text-gray-800 px-3 py-1 rounded-md text-sm font-semibold">
+                Latest
+            </span>
+    
+            <!-- Title -->
+            <h1 class="text-2xl md:text-4xl font-bold mt-2">
+                Adventure Awaits You
+            </h1>
+    
+            <!-- Subtitle -->
+            <p class="text-sm md:text-lg text-gray-200 mt-1">
+                Traveling is an investment in yourself...
+            </p>
+        </div>
+    </section>
+    
+
+
+    <!-- BLOG SECTION -->
+    <section class="py-12 pt-6 mt-4 ">
+        <div class="container mx-auto px-6">
+            <h1 class="text-xl font-bold text-center mb-6 md:text-3xl">Our Latest Blogs</h1>
+
+            <!-- Blog Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+
+                <% posts.reverse().forEach(post=> { %>
+                    <div class="bg-white">
+                        <!-- Blog Title -->
+                        <h2 class="text-md md:text-xl min-h-14 font-bold text-gray-900 hover:text-[#C47B47] cursor-pointer">
+                            <%= post.title %>
+                        </h2>
+
+                        <!-- Date and Category -->
+                        <p class="text-gray-500 mt-1 text-sm ">
+                        <p>Create at <span class="text-[#C47B47] hover:underline">
+                                <%= post.date %>
+                            </span></p>
+                        </p>
+
+                        <!-- Blog Image -->
+                        <div class="mt-4">
+                            <img src="/images/uploads/<%= post.blogpic %>" alt="post"
+                                class="w-full h-52 object-cover rounded-lg">
+                        </div>
+
+                        <!-- Read More Link -->
+                        <div class="mt-2">
+                            <a href="/blog/<%=post._id%>" class="text-[#C47B47] font-semibold hover:underline">Read More
+                                →</a>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+
+        </div>
+    </section>
+
+ <!-- Footer -->
+ <footer class="bg-[#1D1B18] text-white py-6 mt-12 text-center">
+    <p>© 2025 Roni's Radar. All rights reserved.</p>
+    <a href="#" class="underline">Privacy Policy</a> |
+    <a href="#" class="underline">Terms & Conditions</a>
+</footer>
+
+    <script src="/javascripts/app.js"></script>
+</body>
+
+</html>

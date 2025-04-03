@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roni's Radar</title>
+    <link href="/css/tailwind.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://kit.fontawesome.com/d90b7d915f.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="data:image/svg+xml,
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+            <text y='90' font-size='90'>📚</text>
+        </svg>" type="image/svg+xml">
+    </Link>
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <!-- Navbar -->
+    <header class="py-6 bg-white">
+        <nav class="container mx-auto flex justify-between items-center px-8">
+            <a href="/" class="text-[1.1rem] font-bold text-[#4A3F35]">📚 Roni's<span class="text-[#C47B47]"> Radar</span>
+            </a>
+            <form action="/logout" method="post">
+                <button
+                    class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-800 w-auto">Logout</button>
+            </form>
+        </nav>
+    </header>
+
+    <!-- Profile Section -->
+    <section class="container mx-auto px-6 py-8">
+        <div class="flex items-center space-x-4">
+            <!-- Profile Picture with Edit Icon -->
+            <div class="relative w-16 h-16">
+                <img src="/images/profilepic/<%=user.profilepic%>" alt="Profile Picture"
+                    class="w-full h-full rounded-full object-cover border-2 border-gray-300">
+                <!-- Edit Icon on Profile Picture -->
+                <a href="/profile/avatar"
+                    class="absolute bottom-0 right-0 text-[10px] p-1 text-blue-800 bg-white rounded-full border border-gray-300 shadow-sm">
+                    <i class="fa-solid fa-pen"></i>
+                </a>
+            </div>
+
+            <!-- User Info -->
+            <div>
+                <h1 class="text-2xl font-bold">Hi, <%= user.name %> 👋</h1>
+                <p class="text-gray-600 text-sm">Welcome to your profile</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blogs Section -->
+    <section class="py-12 pt-6 min-h-[400px]">
+        <div class="container mx-auto px-6">
+            <h2 class="text-xl font-bold mb-6 md:text-2xl">Your Blogs</h2> <!-- Left Aligned Title -->
+
+            <!-- Blog Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                <% if(user.post.length > 0){ %>
+                    <% user.post.reverse().forEach(post=> { %>
+                        <!-- Dynamic Blog Card -->
+                        <div class="bg-white p-1 md:pl-4">
+                            <h2 class="text-md md:text-xl min-h-14 font-bold text-gray-900 hover:text-[#C47B47] cursor-pointer">
+                                <%= post.title %>
+                            </h2>
+                            <p class="text-gray-500 mt-1 text-sm">
+                                Created at <span class="text-[#C47B47] hover:underline">
+                                    <%= post.date %>
+                                </span>
+                            </p>
+                            <div class="mt-4">
+                                <img src="/images/uploads/<%=post.blogpic%>" alt="post"
+                                    class="w-full h-52 object-cover rounded-lg">
+                            </div>
+                            <div class="mt-4 flex flex-col space-y-2">
+                                <a href="/blog/<%= post._id %>" class="text-[#C47B47] cursor-pointer hover:underline">Read
+                                    More →</a>
+                                <div class="flex gap-3">
+                                    <a href="/profile/edit/<%= post._id %>"
+                                        class="text-blue-500 cursor-pointer hover:underline">Edit</a>
+                                    <a href="/profile/delete/<%= post._id %>"
+                                        class="text-red-500 cursor-pointer hover:underline">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %>
+
+               <% } else{ %>
+                <h1>you don't have any blog yet.</h1>
+               <% } %>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1D1B18] text-white py-6 mt-12 text-center">
+        <p>© 2025 Roni's Radar. All rights reserved.</p>
+        <a href="#" class="underline">Privacy Policy</a> |
+        <a href="#" class="underline">Terms & Conditions</a>
+    </footer>
+
+</body>
+
+</html>

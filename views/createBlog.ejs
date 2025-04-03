@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roni's Radar</title>
+    <link href="/css/tailwind.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <!-- HEADER -->
+    <header class="py-6 bg-white ">
+        <nav class="container mx-auto flex justify-between items-center px-8 md:px-4">
+            <a href="/" class="text-[1.1rem] font-bold text-[#4A3F35]">📚 Roni's<span class="text-[#C47B47]">
+                    Radar</span></a href="/">
+            <a href="/"
+                class="text-[#8C4A35] border px-4 py-2 rounded border-[#8C4A35] hover:bg-[#8C4A35] hover:text-white">Back</a>
+        </nav>
+    </header>
+
+    <!-- BLOG FORM -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-8 md:px-4 sm:px-2 max-w-2xl">
+            <h1 class="text-xl md:text-3xl font-bold text-center text-[#4A3F35]">Create a New Blog</h1>
+            <p class="text-center text-gray-600 mt-2">Share your thoughts and ideas with the community</p>
+
+            <form action="/create-blog/submit-blog" method="post" enctype="multipart/form-data" class="mt-6 space-y-4">
+                <!-- Title -->
+                <div>
+                    <label class="mb-2 block text-[#4A3F35] font-semibold">Blog Title</label>
+                    <input type="text" name="title" required
+                        class="w-full bg-white p-3 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#C47B47]">
+                </div>
+
+                <!-- Upload Image -->
+                <div>
+                    <label class=" mb-2 block text-[#4A3F35] font-semibold">Upload Image</label>
+                    <input type="file" name="image" accept="image/*" required
+                        class=" bg-white w-full p-3 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#C47B47]">
+                </div>
+
+                <!-- Content -->
+                <div>
+                    <label class=" mb-2 block text-[#4A3F35] font-semibold">Content</label>
+                    <textarea name="content" rows="5" required
+                        class=" bg-white w-full p-3 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#C47B47]"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit"
+                        class="bg-[#8C4A35] text-white px-6 py-3 rounded-lg hover:bg-[#6F3928] transition duration-300">
+                        Create Blog
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#1D1B18] text-white py-8 mt-12">
+        <div class="container mx-auto text-center">
+            <p>© 2025 Roni's Radar. All rights reserved.</p>
+            <a href="#" class="underline">Privacy Policy</a> |
+            <a href="#" class="underline">Terms & Conditions</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
