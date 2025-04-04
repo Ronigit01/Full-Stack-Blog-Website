@@ -34,7 +34,7 @@ app.post("/logout",(req,res)=>{
 })
 
 
-app.listen(process.env.PORT)
+
 
 
 module.exports = app;
