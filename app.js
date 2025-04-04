@@ -10,6 +10,7 @@ const profileRouter = require("./routes/profile-routes")
 const googleRouter = require("./routes/google-oauth-routes")
 const GoogleStrategy = require("./config/google-strategy")
 const expressSession = require("express-session")
+const MongoStore = require('connect-mongo');
 const passport = require("passport")
 
 require("dotenv").config()
