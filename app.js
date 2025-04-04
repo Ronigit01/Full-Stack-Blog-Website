@@ -10,7 +10,6 @@ const profileRouter = require("./routes/profile-routes")
 const googleRouter = require("./routes/google-oauth-routes")
 const GoogleStrategy = require("./config/google-strategy")
 const expressSession = require("express-session")
-const MongoStore = require('connect-mongo');
 const passport = require("passport")
 
 require("dotenv").config()
@@ -27,15 +26,6 @@ app.use(expressSession({
     secret: process.env.EXPRESS_SESSION_KEY,
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({
-        mongoUrl: process.env.MONGODB_URI || "your_mongodb_connection_string",
-        collectionName: 'sessions',
-      }),
-      cookie: {
-        maxAge: 1000 * 60 * 60 * 24, // 1 day
-        secure: process.env.NODE_ENV === "production",
-        httpOnly: true,
-      }
 }))
 app.use(passport.initialize())
 app.use(passport.session())
