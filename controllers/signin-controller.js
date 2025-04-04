@@ -39,8 +39,8 @@ module.exports.createController = async (req, res) => {
                         res.redirect("/login")
 
                     }catch(err){
-
-                        if(err.name === "ValidationError"){
+ 
+                        if(err.name === "ValidationError"){          //database level validation check
                             return res.status(500).send("invalid credentials")
                         }
                     }
